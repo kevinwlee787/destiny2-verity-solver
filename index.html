@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selection Page</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 1em;
+            width: 100%;
+        }
+        main {
+            width: 80%;
+            max-width: 1200px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .selection-container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .selection-area {
+            flex: 1;
+            margin: 0 10px;
+        }
+        .selection-area h2 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        .options {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .options div {
+            width: 45%;
+            margin: 5px;
+        }
+        .options img {
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+        }
+        .submit-button {
+            margin: 20px 0;
+        }
+        .solution-box {
+            display: none;
+            margin: 20px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+    </style>
+    <script>
+        function showSolution() {
+            var solutionBox = document.getElementById('solution-box');
+            solutionBox.style.display = 'block';
+            solutionBox.innerHTML = 'This is where the solution will be displayed.';
+        }
+    </script>
+</head>
+<body>
+    <main>
+        <label for="callout-input" style="display: block; margin-bottom: 10px; font-weight: bold;">Inside Callouts:</label>
+        <input type="text" id="callout-input" placeholder="Enter text here" style="width: 100px; padding: 10px; margin-bottom: 20px; text-align: center;">
+        <div class="selection-container">
+            <div class="selection-area">
+                <h2>Selection Area 1</h2>
+                <div class="options">
+                    <div><img src="placeholder1.jpg" alt="Option 1"></div>
+                    <div><img src="placeholder2.jpg" alt="Option 2"></div>
+                    <div><img src="placeholder3.jpg" alt="Option 3"></div>
+                    <div><img src="placeholder4.jpg" alt="Option 4"></div>
+                    <div><img src="placeholder5.jpg" alt="Option 5"></div>
+                    <div><img src="placeholder6.jpg" alt="Option 6"></div>
+                </div>
+            </div>
+            <div class="selection-area">
+                <h2>Selection Area 2</h2>
+                <div class="options">
+                    <div><img src="placeholder1.jpg" alt="Option 1"></div>
+                    <div><img src="placeholder2.jpg" alt="Option 2"></div>
+                    <div><img src="placeholder3.jpg" alt="Option 3"></div>
+                    <div><img src="placeholder4.jpg" alt="Option 4"></div>
+                    <div><img src="placeholder5.jpg" alt="Option 5"></div>
+                    <div><img src="placeholder6.jpg" alt="Option 6"></div>
+                </div>
+            </div>
+            <div class="selection-area">
+                <h2>Selection Area 3</h2>
+                <div class="options">
+                    <div><img src="placeholder1.jpg" alt="Option 1"></div>
+                    <div><img src="placeholder2.jpg" alt="Option 2"></div>
+                    <div><img src="placeholder3.jpg" alt="Option 3"></div>
+                    <div><img src="placeholder4.jpg" alt="Option 4"></div>
+                    <div><img src="placeholder5.jpg" alt="Option 5"></div>
+                    <div><img src="placeholder6.jpg" alt="Option 6"></div>
+                </div>
+            </div>
+        </div>
+        <div id="solution-box" class="solution-box"></div>
+        <div class="submit-button">
+            <button type="button" onclick="showSolution()" style="padding: 10px 20px;">Submit</button>
+        </div>
+    </main>
+</body>
+</html>
