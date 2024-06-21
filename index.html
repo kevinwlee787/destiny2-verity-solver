@@ -44,14 +44,23 @@
             flex-wrap: wrap;
             justify-content: center;
         }
-        .options div {
-            width: 45%;
+        .option {
+            width: 100px; /* Adjust width as needed */
             margin: 5px;
+            text-align: center;
+            cursor: pointer;
         }
-        .options img {
+        .option input[type="radio"] {
+            display: none; /* Hide the actual radio buttons */
+        }
+        .option img {
             width: 100%;
             height: auto;
-            cursor: pointer;
+            border: 2px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+        .option input[type="radio"]:checked + img {
+            border-color: #007bff; /* Blue border when selected */
         }
         .submit-button {
             margin: 20px 0;
@@ -67,10 +76,33 @@
     <script>
         function showSolution() {
             var solutionBox = document.getElementById('solution-box');
+            
+            // Get text input value
+            var calloutText = document.getElementById('callout-input').value;
+            
+            // Get selected options
+            var options1 = document.querySelector('input[name="options1"]:checked');
+            var options2 = document.querySelector('input[name="options2"]:checked');
+            var options3 = document.querySelector('input[name="options3"]:checked');
+            
+            // Prepare the solution message
+            var solutionMessage = 'Inside Callouts: ' + calloutText + '<br>';
+            
+            if (options1) {
+                solutionMessage += 'Outside Left: ' + options1.value + '<br>';
+            }
+            if (options2) {
+                solutionMessage += 'Outside Middle: ' + options2.value + '<br>';
+            }
+            if (options3) {
+                solutionMessage += 'Outside Right: ' + options3.value + '<br>';
+            }
+            
+            // Display the solution message in the solution-box
+            solutionBox.innerHTML = solutionMessage;
             solutionBox.style.display = 'block';
-            solutionBox.innerHTML = 'This is where the solution will be displayed.';
         }
-    </script>
+    </script>    
 </head>
 <body>
     <main>
@@ -78,36 +110,90 @@
         <input type="text" id="callout-input" placeholder="Enter text here" style="width: 100px; padding: 10px; margin-bottom: 20px; text-align: center;">
         <div class="selection-container">
             <div class="selection-area">
-                <h2>Selection Area 1</h2>
+                <h2>Outside Left</h2>
                 <div class="options">
-                    <div><img src="placeholder1.jpg" alt="Option 1"></div>
-                    <div><img src="placeholder2.jpg" alt="Option 2"></div>
-                    <div><img src="placeholder3.jpg" alt="Option 3"></div>
-                    <div><img src="placeholder4.jpg" alt="Option 4"></div>
-                    <div><img src="placeholder5.jpg" alt="Option 5"></div>
-                    <div><img src="placeholder6.jpg" alt="Option 6"></div>
+                    <label class="option">
+                        <input type="radio" name="options1" value="CC">
+                        <img src="assets/images/sphere.svg" alt="Sphere">
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="options1" value="SS">
+                        <img src="assets/images/cube.svg" alt="Cube">
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="options1" value="TT">
+                        <img src="assets/images/pyramid.svg" alt="Pyramid">
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="options1" value="CS">
+                        <img src="assets/images/cylinder.svg" alt="Cylinder">
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="options1" value="TS">
+                        <img src="assets/images/prism.svg" alt="Prism">
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="options1" value="TC">
+                        <img src="assets/images/cone.svg" alt="Cone">
+                    </label>
                 </div>
             </div>
             <div class="selection-area">
-                <h2>Selection Area 2</h2>
+                <h2>Outside Middle</h2>
                 <div class="options">
-                    <div><img src="placeholder1.jpg" alt="Option 1"></div>
-                    <div><img src="placeholder2.jpg" alt="Option 2"></div>
-                    <div><img src="placeholder3.jpg" alt="Option 3"></div>
-                    <div><img src="placeholder4.jpg" alt="Option 4"></div>
-                    <div><img src="placeholder5.jpg" alt="Option 5"></div>
-                    <div><img src="placeholder6.jpg" alt="Option 6"></div>
+                    <label class="option">
+                        <input type="radio" name="options2" value="CC">
+                        <img src="assets/images/sphere.svg" alt="Sphere">
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="options2" value="SS">
+                        <img src="assets/images/cube.svg" alt="Cube">
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="options2" value="TT">
+                        <img src="assets/images/pyramid.svg" alt="Pyramid">
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="options2" value="CS">
+                        <img src="assets/images/cylinder.svg" alt="Cylinder">
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="options2" value="TS">
+                        <img src="assets/images/prism.svg" alt="Prism">
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="options2" value="TC">
+                        <img src="assets/images/cone.svg" alt="Cone">
+                    </label>
                 </div>
             </div>
             <div class="selection-area">
-                <h2>Selection Area 3</h2>
+                <h2>Outside Right</h2>
                 <div class="options">
-                    <div><img src="placeholder1.jpg" alt="Option 1"></div>
-                    <div><img src="placeholder2.jpg" alt="Option 2"></div>
-                    <div><img src="placeholder3.jpg" alt="Option 3"></div>
-                    <div><img src="placeholder4.jpg" alt="Option 4"></div>
-                    <div><img src="placeholder5.jpg" alt="Option 5"></div>
-                    <div><img src="placeholder6.jpg" alt="Option 6"></div>
+                    <label class="option">
+                        <input type="radio" name="options3" value="CC">
+                        <img src="assets/images/sphere.svg" alt="Sphere">
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="options3" value="SS">
+                        <img src="assets/images/cube.svg" alt="Cube">
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="options3" value="TT">
+                        <img src="assets/images/pyramid.svg" alt="Pyramid">
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="options3" value="CS">
+                        <img src="assets/images/cylinder.svg" alt="Cylinder">
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="options3" value="TS">
+                        <img src="assets/images/prism.svg" alt="Prism">
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="options3" value="TC">
+                        <img src="assets/images/cone.svg" alt="Cone">
+                    </label>
                 </div>
             </div>
         </div>
